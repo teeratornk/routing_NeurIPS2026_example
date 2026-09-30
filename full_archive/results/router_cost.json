@@ -1,0 +1,38 @@
+{
+  "fit_rows": 41629,
+  "n_features": 22,
+  "horizon": 24,
+  "max_iter": 300,
+  "n_iter_fitted": 186,
+  "early_stopping_active": true,
+  "pickled_bytes": 738022,
+  "pickled_kib": 720.7,
+  "structural_bytes": 13032,
+  "size_ratio_vs_structural": 56.6,
+  "structural_latency_us": 111.0,
+  "structural_latency_source": "concurrent submission, not measured here",
+  "single_request_latency": {
+    "p50_us": 2041.13,
+    "p95_us": 2101.95,
+    "min_us": 2007.69
+  },
+  "batched_1000_latency_per_request": {
+    "p50_us": 11.14,
+    "p95_us": 11.29,
+    "min_us": 10.78
+  },
+  "single_vs_structural_ratio": 18.4,
+  "environment": {
+    "python": "3.11.14",
+    "sklearn": "1.5.2",
+    "numpy": "1.26.4",
+    "cpu_model": "AMD EPYC 9454 48-Core Processor",
+    "processor": "x86_64",
+    "omp_num_threads": "1",
+    "warmup_predicts": 50,
+    "n_single": 500,
+    "n_batch": 50,
+    "cpu_pinning": "none; single-threaded by OMP_NUM_THREADS only",
+    "note": "single-threaded; run with OMP_NUM_THREADS=1"
+  }
+}

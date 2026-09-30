@@ -1,0 +1,5 @@
+contrast,column,median_across_cells_pp,cond_lo,cond_hi,cond_sig,sel_lo,sel_hi,sel_sig,n_cells,n_draws
+d_total,diff_total_pp,0.1044,0.0394,0.1894,True,0.0108,0.1763,True,8,2000
+d_total_sym,diff_total_symmetric_pp,0.08,0.021,0.1833,True,0.005,0.1641,True,8,2000
+g_pool,gain_pooled_pp,0.1913,0.1218,0.2306,True,0.1181,0.2273,True,8,2000
+g_own,gain_median_ownpolicy_pp,0.0347,0.0,0.0484,False,0.0,0.1243,False,8,2000

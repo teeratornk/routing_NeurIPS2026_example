@@ -1,0 +1,10 @@
+arm,label,horizon,n,univariate,covariate,cov_minus_uni_pp,lo,hi,cov_wins_share,structural
+cal,calendar + holidays,1,6934,0.7743,0.8047,0.0304,-0.0318,0.0657,0.4957,1.0738
+cal,calendar + holidays,24,6934,2.1446,2.1799,0.0352,-0.0962,0.2042,0.4867,2.5941
+cal,calendar + holidays,168,6933,4.0034,3.9023,-0.101,-0.5316,0.1037,0.5169,3.6787
+cal,calendar + holidays,720,6934,7.2718,7.5867,0.315,-0.7147,1.0519,0.4948,5.671
+cal,calendar + holidays,8760,6935,9.1476,11.4536,2.306,1.1949,3.8783,0.3988,5.2909
+calclim,calendar + holidays + climatology,1,6934,0.7743,0.8168,0.0425,-0.0236,0.0642,0.4926,1.0738
+calclim,calendar + holidays + climatology,24,6934,2.1446,2.1874,0.0427,-0.0836,0.1779,0.4823,2.5941
+calclim,calendar + holidays + climatology,168,6933,4.0034,3.809,-0.1944,-0.5698,0.0745,0.5266,3.6787
+calclim,calendar + holidays + climatology,720,6934,7.2718,6.8629,-0.4089,-0.9701,0.7184,0.5166,5.671

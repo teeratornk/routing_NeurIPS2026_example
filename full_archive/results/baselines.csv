@@ -1,0 +1,9 @@
+fm,horizon,estimand,always_cheap,always_expensive,hindsight_best_fixed,frozen_static_pick,frozen_static,hindsight_advantage_pp,blend_alpha,blend_val,blend_val_gain_pp,deploy_blend_on_2024,blend_test,blend_vs_frozen_static_pp,blend_vs_hindsight_pp,oracle_gain_pp,wmape_cheap,wmape_expensive,wmape_blend
+Chronos-2-Uni-ZS,1,pooled_mean,1.7506,1.2867,1.2867,expensive,1.2867,0.0,0.7482,1.0435,0.0729,True,1.2261,0.0605,0.0605,0.3786,1.4597,1.0644,1.0061
+Chronos-2-Uni-ZS,24,pooled_mean,4.2374,3.5458,3.5458,expensive,3.5458,0.0,0.6166,3.1845,0.0523,True,3.4897,0.0562,0.0562,0.8741,3.7541,3.0903,3.0246
+Chronos-2-Uni-ZS,168,pooled_mean,5.6986,5.9331,5.6986,cheap,5.6986,0.0,0.3316,5.0735,0.1444,True,5.487,0.2116,0.2116,1.3187,5.3511,5.5604,5.1249
+Chronos-2-Uni-ZS,720,pooled_mean,7.4804,9.572,7.4804,cheap,7.4804,0.0,0.058,7.4855,0.0754,True,7.4255,0.0549,0.0549,1.7257,6.8034,9.1213,6.7717
+TimesFM-2.5-Uni-ZS,1,pooled_mean,1.7506,1.2948,1.2948,expensive,1.2948,0.0,0.8338,1.0724,0.0057,False,1.2927,0.0021,0.0021,0.3088,1.4597,1.0657,1.0664
+TimesFM-2.5-Uni-ZS,24,pooled_mean,4.2374,4.0213,4.0213,expensive,4.0213,0.0,0.5079,3.4342,0.3371,True,3.6885,0.3328,0.3328,1.3105,3.7541,3.5192,3.1782
+TimesFM-2.5-Uni-ZS,168,pooled_mean,5.6986,6.2127,5.6986,cheap,5.6986,0.0,0.3239,5.1304,0.0875,True,5.4821,0.2165,0.2165,1.489,5.3511,5.6599,5.1026
+TimesFM-2.5-Uni-ZS,720,pooled_mean,7.4804,9.2624,7.4804,cheap,7.4804,0.0,0.0955,7.428,0.1328,True,7.3962,0.0842,0.0842,1.8865,6.8034,8.5211,6.7473

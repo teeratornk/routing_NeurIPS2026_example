@@ -1,0 +1,4 @@
+contrast,column,median_across_cells_pp,lo,hi,excludes_zero,n_cells,n_draws
+d_score,diff_scoring_pp,0.0393,-0.0004,0.1485,False,8,2000
+d_total,diff_total_pp,0.1044,0.0394,0.1894,True,8,2000
+d_total_sym,diff_total_symmetric_pp,0.08,0.021,0.1833,True,8,2000

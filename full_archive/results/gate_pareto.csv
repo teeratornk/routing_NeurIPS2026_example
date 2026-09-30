@@ -1,0 +1,4 @@
+learner,median_gain_pp,positive_cells,excl_zero_cells,size_kb,gate_ms,e2e_median_ms,faster_than_always_fm
+HGB (deployed),0.1913,8,8,738.0,2.041,19.17,6 of 8
+shallow tree,0.0411,7,4,55.9,1.316,18.32,8 of 8
+ridge,0.0141,4,2,3.9,1.199,18.5,5 of 8

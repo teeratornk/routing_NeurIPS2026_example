@@ -1,0 +1,9 @@
+fm,horizon,budget_pooled,budget_median,gain_pooled_pp,gain_pooled_lo,gain_pooled_hi,gain_pooled_sig,gain_median_samepolicy_pp,gain_median_samepolicy_lo,gain_median_samepolicy_hi,gain_median_samepolicy_sig,gain_median_ownpolicy_lo,gain_median_ownpolicy_hi,gain_median_ownpolicy_sig,gain_median_ownpolicy_pp,diff_scoring_pp,diff_scoring_lo,diff_scoring_hi,diff_scoring_sig,diff_total_pp,diff_total_lo,diff_total_hi,diff_total_sig
+Chronos-2-Uni-ZS,1,0.9,0.95,0.0369,0.0192,0.0572,True,0.0114,-0.0235,0.068,False,-0.0034,0.0601,False,0.0187,0.0255,-0.0343,0.055,False,0.0182,-0.0286,0.0429,False
+Chronos-2-Uni-ZS,24,0.9,0.95,0.2139,0.1415,0.2889,True,0.0416,-0.0089,0.1064,False,0.0,0.0611,False,0.0506,0.1722,0.0766,0.2714,True,0.1633,0.1038,0.2699,True
+Chronos-2-Uni-ZS,168,0.45,0.0,0.1686,0.0813,0.2684,True,0.1756,-0.0201,0.2722,False,0.0,0.0,False,0.0,-0.007,-0.133,0.2128,False,0.1686,0.0813,0.2684,True
+Chronos-2-Uni-ZS,720,0.2,0.45,0.2673,0.1176,0.4778,True,0.2143,-0.1969,0.8593,False,-0.5162,0.8593,False,0.1857,0.053,-0.5118,0.4525,False,0.0817,-0.4669,0.7737,False
+TimesFM-2.5-Uni-ZS,1,0.95,0.9,0.0258,0.0147,0.0372,True,0.0034,0.0,0.0435,False,-0.0071,0.0406,False,-0.0071,0.0224,-0.0145,0.0339,False,0.0329,-0.0163,0.0403,False
+TimesFM-2.5-Uni-ZS,24,0.5,0.5,0.2992,0.2078,0.4036,True,0.1485,0.0085,0.3578,True,0.0085,0.3578,True,0.1485,0.1507,-0.0315,0.2927,False,0.1507,-0.0315,0.2927,False
+TimesFM-2.5-Uni-ZS,168,0.1,0.0,0.1271,0.0612,0.1984,True,-0.0212,-0.0212,0.171,False,0.0,0.0,False,0.0,0.1483,-0.0688,0.1864,False,0.1271,0.0612,0.1984,True
+TimesFM-2.5-Uni-ZS,720,0.25,0.5,0.2501,0.0748,0.4562,True,0.3584,-0.3818,0.7834,False,-0.9738,0.6823,False,0.1935,-0.1083,-0.5601,0.5412,False,0.0565,-0.4054,1.1124,False

@@ -1,0 +1,9 @@
+model,horizon,point_pp,dateblock_lo,dateblock_hi,dateblock_sig,n_dates,block_days,outcome_overlaps_block
+Chronos-2-Uni-ZS,1,0.0369,0.0144,0.0658,True,350,28,False
+Chronos-2-Uni-ZS,24,0.2139,0.0931,0.3579,True,365,28,False
+Chronos-2-Uni-ZS,168,0.1686,0.0269,0.2959,True,365,28,False
+Chronos-2-Uni-ZS,720,0.2673,0.1009,0.4097,True,365,28,True
+TimesFM-2.5-Uni-ZS,1,0.0258,0.008,0.0481,True,350,28,False
+TimesFM-2.5-Uni-ZS,24,0.2992,0.2035,0.4127,True,365,28,False
+TimesFM-2.5-Uni-ZS,168,0.1271,0.0005,0.2194,True,365,28,False
+TimesFM-2.5-Uni-ZS,720,0.2501,0.0951,0.4131,True,365,28,True

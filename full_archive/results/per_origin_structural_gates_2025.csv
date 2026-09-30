@@ -1,0 +1,5 @@
+gate,h,printed,recomputed,pass
+si:tab:frozen2025[2025],1,1.07,1.0738,True
+si:tab:frozen2025[2025],24,2.59,2.5941,True
+si:tab:frozen2025[2025],168,3.68,3.6787,True
+si:tab:frozen2025[2025],720,5.67,5.671,True

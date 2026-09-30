@@ -1,0 +1,3 @@
+horizon,label,n,r_structural,r_chronos,r_oracle,oracle_gap_pp,frac_chronos_wins,positive_margin_share,mean_win_pp,mean_loss_pp
+8760,1 yr,6935,7.2368,11.2892,5.1617,2.0751,0.3468,0.253,5.9838,-9.3807
+17520,2 yr,6935,7.9922,14.2444,5.9515,2.0407,0.311,0.1975,6.5611,-12.0366

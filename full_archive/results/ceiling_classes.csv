@@ -1,0 +1,9 @@
+fm,horizon,estimand,hgb_blocked_pp,hgb_r2_blocked,oracle_gain_pp,ridge_blocked_pp,ridge_r2_blocked,abs_class_difference_pp
+Chronos-2-Uni-ZS,1,panel_median,0.0,-0.1836,0.2625,0.0,-7.6304,0.0
+Chronos-2-Uni-ZS,24,panel_median,0.0324,-0.001,0.5971,0.0042,-0.1022,0.0282
+Chronos-2-Uni-ZS,168,panel_median,0.0787,-0.1797,1.0013,0.0615,0.0386,0.0172
+Chronos-2-Uni-ZS,720,panel_median,0.0,-0.3437,1.5265,0.0465,-0.3713,0.0465
+TimesFM-2.5-Uni-ZS,1,panel_median,0.0,-0.2578,0.2237,0.0,-10.4467,0.0
+TimesFM-2.5-Uni-ZS,24,panel_median,0.1618,0.0034,1.0325,0.1251,-0.1108,0.0367
+TimesFM-2.5-Uni-ZS,168,panel_median,0.0383,-0.1307,1.2127,0.0,0.0437,0.0383
+TimesFM-2.5-Uni-ZS,720,panel_median,0.0,-0.3544,1.8889,0.0,-0.6282,0.0

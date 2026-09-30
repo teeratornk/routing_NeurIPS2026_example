@@ -1,0 +1,39 @@
+{
+  "features": [
+    "horizon",
+    "anchor_hour",
+    "anchor_dow",
+    "anchor_month",
+    "anchor_load",
+    "recent_resid_vol",
+    "recent_load_range",
+    "anchor_temp",
+    "anchor_hdd_anom",
+    "anchor_cdd_anom",
+    "anchor_is_hol",
+    "anchor_is_bridge",
+    "fwd_hour",
+    "fwd_dow",
+    "fwd_month",
+    "fwd_doy",
+    "fwd_is_hol",
+    "fwd_is_bridge",
+    "fwd_temp_clim",
+    "fwd_hdd_clim",
+    "fwd_cdd_clim",
+    "country_code"
+  ],
+  "fit_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "selection_year": [
+    2024
+  ],
+  "seed": 0,
+  "learner": "HistGradientBoostingRegressor, sklearn 1.5.2 defaults, 300 iterations"
+}

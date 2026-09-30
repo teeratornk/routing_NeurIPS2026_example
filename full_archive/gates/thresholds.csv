@@ -1,0 +1,9 @@
+fm,horizon,gate_file,budget_pooled_mean,threshold_pooled_mean,budget_panel_median,threshold_panel_median
+Chronos-2-Uni-ZS,1,gate_chronos-2_h1.pkl,0.9,0.035491,0.95,-0.202858
+Chronos-2-Uni-ZS,24,gate_chronos-2_h24.pkl,0.9,-0.132973,0.95,-0.455859
+Chronos-2-Uni-ZS,168,gate_chronos-2_h168.pkl,0.45,0.045903,0.0,inf
+Chronos-2-Uni-ZS,720,gate_chronos-2_h720.pkl,0.2,0.721741,0.45,-0.5781
+TimesFM-2.5-Uni-ZS,1,gate_timesfm-25_h1.pkl,0.95,-0.032585,0.9,0.042219
+TimesFM-2.5-Uni-ZS,24,gate_timesfm-25_h24.pkl,0.5,0.098284,0.5,0.098284
+TimesFM-2.5-Uni-ZS,168,gate_timesfm-25_h168.pkl,0.1,0.939161,0.0,inf
+TimesFM-2.5-Uni-ZS,720,gate_timesfm-25_h720.pkl,0.25,0.469843,0.5,-0.773495

@@ -1,0 +1,103 @@
+{
+  "host": "<anonymised>",
+  "poll_seconds": 0.1,
+  "rapl": [
+    {
+      "domain": "intel-rapl:0",
+      "exists": true,
+      "readable": false,
+      "error": "PermissionError: [Errno 13] Permission denied: '/sys/class/powercap/intel-rapl:0/energy_uj'",
+      "name": "package-0"
+    },
+    {
+      "domain": "intel-rapl:0:0",
+      "exists": true,
+      "readable": false,
+      "error": "PermissionError: [Errno 13] Permission denied: '/sys/class/powercap/intel-rapl:0:0/energy_uj'",
+      "name": "dram"
+    },
+    {
+      "domain": "intel-rapl:1",
+      "exists": true,
+      "readable": false,
+      "error": "PermissionError: [Errno 13] Permission denied: '/sys/class/powercap/intel-rapl:1/energy_uj'",
+      "name": "psys"
+    },
+    {
+      "domain": "intel-rapl:2",
+      "exists": true,
+      "readable": false,
+      "error": "PermissionError: [Errno 13] Permission denied: '/sys/class/powercap/intel-rapl:2/energy_uj'",
+      "name": "package-1"
+    },
+    {
+      "domain": "intel-rapl:2:0",
+      "exists": true,
+      "readable": false,
+      "error": "PermissionError: [Errno 13] Permission denied: '/sys/class/powercap/intel-rapl:2:0/energy_uj'",
+      "name": "dram"
+    }
+  ],
+  "rapl_readable": false,
+  "gpu_idle": {
+    "n": 160,
+    "mean_w": 76.02,
+    "sd_w": 0.056,
+    "min_w": 75.93,
+    "median_w": 76.01,
+    "max_w": 76.16
+  },
+  "warmup": "applied 3218 matmuls of 4096x4096 on NVIDIA H200",
+  "gpu_load_runs": [
+    {
+      "repeat": 0,
+      "load_status": "applied 7637 matmuls of 4096x4096 on NVIDIA H200",
+      "elapsed_s": 20.93,
+      "power": {
+        "n": 166,
+        "mean_w": 439.65,
+        "sd_w": 2.369,
+        "min_w": 435.99,
+        "median_w": 439.63,
+        "max_w": 448.56
+      },
+      "idle_adjusted_joules": 7611.9
+    },
+    {
+      "repeat": 1,
+      "load_status": "applied 7638 matmuls of 4096x4096 on NVIDIA H200",
+      "elapsed_s": 20.93,
+      "power": {
+        "n": 170,
+        "mean_w": 443.51,
+        "sd_w": 2.428,
+        "min_w": 441.16,
+        "median_w": 443.21,
+        "max_w": 454.49
+      },
+      "idle_adjusted_joules": 7693.5
+    },
+    {
+      "repeat": 2,
+      "load_status": "applied 7637 matmuls of 4096x4096 on NVIDIA H200",
+      "elapsed_s": 20.93,
+      "power": {
+        "n": 168,
+        "mean_w": 445.03,
+        "sd_w": 2.703,
+        "min_w": 443.73,
+        "median_w": 444.39,
+        "max_w": 456.74
+      },
+      "idle_adjusted_joules": 7724.6
+    }
+  ],
+  "joule_repeat_spread_pct": 1.5,
+  "verdict": {
+    "cpu_joules_directly_measurable": false,
+    "gpu_power_sampling_available": true,
+    "idle_baseline_sd_w": 0.056,
+    "idle_baseline_clean": true,
+    "note": "idle sd above ~1 W means the node was not quiet while the baseline was taken; the baseline is subtracted from every workload figure, so Phase 1 must measure it on an unshared node"
+  }
+}

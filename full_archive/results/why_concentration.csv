@@ -1,0 +1,9 @@
+fm,horizon,n,top1pct_share_of_gain,top5pct_share_of_gain,top10pct_share_of_gain,top25pct_share_of_gain
+Chronos-2-Uni-ZS,1,6934,0.1324,0.3546,0.5155,0.7906
+Chronos-2-Uni-ZS,24,6934,0.1105,0.34,0.5177,0.8137
+Chronos-2-Uni-ZS,168,6933,0.1308,0.3831,0.5707,0.8708
+Chronos-2-Uni-ZS,720,6934,0.1063,0.365,0.5794,0.916
+TimesFM-2.5-Uni-ZS,1,6934,0.1433,0.3576,0.5024,0.7736
+TimesFM-2.5-Uni-ZS,24,6934,0.1148,0.3525,0.5343,0.8459
+TimesFM-2.5-Uni-ZS,168,6933,0.1234,0.3652,0.5571,0.8732
+TimesFM-2.5-Uni-ZS,720,6934,0.0927,0.3262,0.5259,0.8727

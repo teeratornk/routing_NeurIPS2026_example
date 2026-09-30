@@ -1,0 +1,19 @@
+\begin{tabular}{lrrrr}
+\toprule
+cap & steps/call & passes & 2024 panel-median MdAPE & \\
+\midrule
+\multicolumn{5}{l}{\emph{$h=8760$, one year}} \\
+64 & 1024 & 9 & 12.81 & default \\
+56 & 896 & 10 & 10.73 & \\
+48 & 768 & 12 & \textbf{9.56} & \textbf{frozen} \\
+40 & 640 & 14 & 12.78 & \\
+32 & 512 & 18 & 15.31 & \\
+\midrule
+\multicolumn{5}{l}{\emph{$h=17520$, two years}} \\
+64 & 1024 & 18 & 11.78 & default \\
+56 & 896 & 20 & \textbf{11.33} & \textbf{frozen} \\
+48 & 768 & 23 & 12.34 & \\
+40 & 640 & 28 & 13.52 & \\
+32 & 512 & 35 & 14.51 & \\
+\bottomrule
+\end{tabular}

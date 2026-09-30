@@ -1,0 +1,9 @@
+fm,horizon,n_all,n_kept,gain_all_pp,lo_all,hi_all,gain_dst_pp,lo_dst,hi_dst,excludes_zero_all,excludes_zero_dst
+Chronos-2-Uni-ZS,1,6934,6402,0.0369,0.0192,0.0572,0.0402,0.0202,0.0628,True,True
+Chronos-2-Uni-ZS,24,6934,6402,0.2139,0.1431,0.286,0.2193,0.1417,0.2991,True,True
+Chronos-2-Uni-ZS,168,6933,6401,0.1686,0.0767,0.2647,0.1589,0.0723,0.2456,True,True
+Chronos-2-Uni-ZS,720,6934,6402,0.2673,0.116,0.4689,0.2781,0.1142,0.5043,True,True
+TimesFM-2.5-Uni-ZS,1,6934,6402,0.0258,0.015,0.0368,0.0286,0.0168,0.0407,True,True
+TimesFM-2.5-Uni-ZS,24,6934,6402,0.2992,0.2053,0.4007,0.3072,0.2035,0.4177,True,True
+TimesFM-2.5-Uni-ZS,168,6933,6401,0.1271,0.0613,0.2038,0.1347,0.0671,0.2128,True,True
+TimesFM-2.5-Uni-ZS,720,6934,6402,0.2501,0.0826,0.4495,0.2664,0.0947,0.4736,True,True
