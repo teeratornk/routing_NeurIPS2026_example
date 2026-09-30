@@ -63,7 +63,7 @@ the corresponding author named in the paper.
 
 | table | script | inputs |
 |---|---|---|
-| tab_main, tab_gap, tab_paired, tab_threshold, tab_year, tab_estimands, tab_capselect, tab_policy2x2, tab_noweather, tab_controls | `tslimits_tables.py` | `bootstrap_ci_*.csv`, `country_static.csv`, `paired_estimand.csv`, `year_scale.csv`, rollout records |
+| tab_main, tab_gap, tab_policies, tab_paired, tab_threshold, tab_year, tab_estimands, tab_capselect, tab_capselect8192, tab_policy2x2, tab_noweather, tab_controls, tab_countrybreak, tab_why | `tslimits_tables.py` | `bootstrap_ci_*.csv`, `country_static.csv`, `country_breakdown.csv`, `paired_estimand.csv`, `year_scale.csv`, `why_*.csv` (from `tslimits_why.py`), rollout and rollout-selection records |
 | tab_headroom, tab_agg2x2, tab_longlead | `tslimits_headroom.py` | `served_per_request.parquet`, `bootstrap_ci_pooled_mean.csv`, long-lead records |
 | tab_intervals | `tslimits_interval_variants.py` | `cluster_matrices.npz` |
 | tab_dst | `tslimits_dst_sensitivity.py` | `served_per_request.parquet` |

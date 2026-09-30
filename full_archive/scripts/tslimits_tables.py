@@ -763,7 +763,7 @@ def main() -> int:
         [
             "\\begin{tabular}{llrrlrr}",
             "\\toprule",
-            "FM & $h$ & c-static & c-static $-$ h-static & gain over c-static [95\\% CI]"
+            "FM & $h$ & c-static & h-static $-$ c-static & gain over c-static [95\\% CI]"
             " & share & esc.\\% \\\\",
             "\\midrule",
             *_rows(m, pol_row),

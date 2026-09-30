@@ -8,7 +8,7 @@ environment (Python 3.11, scikit-learn 1.5.2, numpy 1.26.4, pandas 2.x):
 
 | table | command | rests on |
 |---|---|---|
-| tab_main, tab_paired, tab_threshold, tab_year, tab_capselect, tab_policy2x2, tab_noweather, tab_controls, tab_policies | `python scripts/tslimits_tables.py` | records (bootstrap_ci_*.csv, country_static.csv, paired_estimand.csv, year_scale.csv come from `tslimits_bootstrap.py`, `tslimits_country_static.py`, `tslimits_paired_estimand.py`, `tslimits_year_scale.py`, all on records) |
+| tab_main, tab_paired, tab_threshold, tab_year, tab_capselect, tab_capselect8192, tab_policy2x2, tab_noweather, tab_controls, tab_policies, tab_countrybreak, tab_why | `python scripts/tslimits_tables.py` | records (bootstrap_ci_*.csv, country_static.csv, country_breakdown.csv, paired_estimand.csv, year_scale.csv come from `tslimits_bootstrap.py`, `tslimits_country_static.py`, `tslimits_paired_estimand.py`, `tslimits_year_scale.py`; why_diagnostics.csv and why_concentration.csv from `tslimits_why.py`; tab_capselect and tab_capselect8192 read the rollout-selection records; all on records) |
 | tab_estimands (panel-median and pooled-mean columns) | `python scripts/tslimits_tables.py` | records |
 | tab_estimands (load-weighted MAPE and MW MAE columns) | `python scripts/tslimits_tables.py` | aggregates: needs target loads, shipped as computed values in results/ |
 | tab_agg2x2, tab_longlead | `python scripts/tslimits_headroom.py` | records |

@@ -1,7 +1,7 @@
         1085  LICENSE-CODE
          339  LICENSE-DATA
-        3832  MANIFEST-tables.md
-        6296  README.md
+        4043  MANIFEST-tables.md
+        6441  README.md
          671  gates/features.json
       176225  gates/gate_chronos-2_h1.pkl
      1115166  gates/gate_chronos-2_h168.pkl
