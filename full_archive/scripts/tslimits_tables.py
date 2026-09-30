@@ -821,6 +821,66 @@ def main() -> int:
         f"{int((m.noweather_over_cc_pp > m.router_over_cc_pp).sum())}/8",
         flush=True,
     )
+    # Selection with a priced FM call (tslimits_cost_selection.py). One row per
+    # cell for the cost-penalised router; the plug-in rule enters as summary
+    # rows only. A dagger marks an interval that covers zero.
+    cs_all = pd.read_csv(OUT / "cost_selection.csv")
+    lam_cols = (0.05, 0.1, 0.2, 0.5, 1.0)
+    assert set(lam_cols) <= set(cs_all["lam"]), "cost_selection.csv lacks a tabulated price"
+
+    def _gain(r: pd.Series) -> str:
+        return f"${r.cost_gain_pp:+.3f}$" + ("" if r.verdict == "pos" else "$^{\\dagger}$")
+
+    router = cs_all[cs_all["policy"] == "router"]
+    cells = router[router["lam"] == 0.0][
+        ["fm", "horizon", "breakeven_router_2024", "breakeven_cc_2024"]
+    ].reset_index(drop=True)
+    assert len(cells) == 8, f"cost_selection has {len(cells)} of 8 cells"
+
+    def cost_row(r: pd.Series) -> str:
+        g = router[(router["fm"] == r.fm) & (router["horizon"] == r.horizon)].set_index("lam")
+        return (
+            f" & {int(r.horizon)} & {r.breakeven_router_2024:.2f} & {r.breakeven_cc_2024:.2f} & "
+            + " & ".join(_gain(g.loc[lam]) for lam in lam_cols)
+            + " \\\\"
+        )
+
+    def _summary(key: str, label: str) -> list[str]:
+        p = cs_all[cs_all["policy"] == key]
+        assert len(p) == 8 * len(set(cs_all["lam"])), f"{key}: incomplete price grid"
+        med = [f"${p[p['lam'] == lam]['cost_gain_pp'].median():+.3f}$" for lam in lam_cols]
+        pos = [f"{int((p[p['lam'] == lam]['verdict'] == 'pos').sum())} of 8" for lam in lam_cols]
+        return [
+            f"\\multicolumn{{4}}{{l}}{{{label}, median over cells}} & " + " & ".join(med) + " \\\\",
+            f"\\multicolumn{{4}}{{l}}{{{label}, intervals above zero}} & "
+            + " & ".join(pos)
+            + " \\\\",
+        ]
+
+    cost = "\n".join(
+        [
+            "\\begin{tabular}{llrrrrrrr}",
+            "\\toprule",
+            " & & \\multicolumn{2}{c}{break-even price (2024)}"
+            " & \\multicolumn{5}{c}{cost-adjusted gain over c-static$^{\\lambda}$"
+            " at price $\\lambda$}"
+            " \\\\",
+            "\\cmidrule(lr){3-4}\\cmidrule(lr){5-9}",
+            "FM & $h$ & router & c-static & "
+            + " & ".join(f"{lam:g}" for lam in lam_cols)
+            + " \\\\",
+            "\\midrule",
+            *_rows(cells, cost_row),
+            "\\midrule",
+            *_summary("router", "router"),
+            *_summary("plugin", "plug-in rule"),
+            "\\bottomrule",
+            "\\end{tabular}",
+        ]
+    )
+    (OUT / "tab_costsel.tex").write_text(cost + "\n")
+    print(f"[tab] wrote tab_costsel from {len(cs_all)} priced rows", flush=True)
+
     print(f"[tab] wrote tab_gap, tab_policies, tab_paired, tab_threshold under {OUT}", flush=True)
     return 0
 

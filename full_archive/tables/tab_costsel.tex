@@ -1,0 +1,24 @@
+\begin{tabular}{llrrrrrrr}
+\toprule
+ & & \multicolumn{2}{c}{break-even price (2024)} & \multicolumn{5}{c}{cost-adjusted gain over c-static$^{\lambda}$ at price $\lambda$} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-9}
+FM & $h$ & router & c-static & 0.05 & 0.1 & 0.2 & 0.5 & 1 \\
+\midrule
+\multirow{4}{*}{Chronos-2}
+ & 1 & 1.67 & 0.67 & $+0.042$ & $+0.055$ & $+0.058$ & $+0.131$ & $+0.089$ \\
+ & 24 & 6.98 & 1.65 & $+0.222$ & $+0.221$ & $+0.252$ & $+0.364$ & $+0.366$ \\
+ & 168 & 2.26 & 0.48 & $+0.151$ & $+0.152$ & $+0.104$ & $+0.066$ & $+0.023$$^{\dagger}$ \\
+ & 720 & 6.31 & 2.78 & $+0.260$ & $+0.252$ & $+0.238$ & $+0.222$ & $+0.208$ \\
+\midrule
+\multirow{4}{*}{TimesFM-2.5}
+ & 1 & 1.69 & 0.72 & $+0.026$ & $+0.031$ & $+0.029$ & $+0.117$ & $+0.052$ \\
+ & 24 & 6.19 & 1.21 & $+0.317$ & $+0.333$ & $+0.356$ & $+0.355$ & $+0.300$ \\
+ & 168 & 1.19 & 0.00 & $+0.122$ & $+0.117$ & $+0.108$ & $+0.079$ & $+0.038$$^{\dagger}$ \\
+ & 720 & 4.92 & 1.71 & $+0.240$ & $+0.230$ & $+0.219$ & $+0.189$ & $+0.141$ \\
+\midrule
+\multicolumn{4}{l}{router, median over cells} & $+0.187$ & $+0.187$ & $+0.163$ & $+0.160$ & $+0.115$ \\
+\multicolumn{4}{l}{router, intervals above zero} & 8 of 8 & 8 of 8 & 8 of 8 & 8 of 8 & 6 of 8 \\
+\multicolumn{4}{l}{plug-in rule, median over cells} & $+0.198$ & $+0.185$ & $+0.171$ & $+0.149$ & $+0.105$ \\
+\multicolumn{4}{l}{plug-in rule, intervals above zero} & 8 of 8 & 7 of 8 & 7 of 8 & 7 of 8 & 5 of 8 \\
+\bottomrule
+\end{tabular}

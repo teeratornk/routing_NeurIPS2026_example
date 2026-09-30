@@ -61,14 +61,14 @@ def main() -> int:
     missing = [c for c in need if c not in d.columns]
     assert not missing, f"paired_estimand.csv lacks level CIs: {missing}"
 
-    # Wide and short on purpose. This figure is included at nearly full text
-    # width, and a taller aspect at that width costs about 60 bp of column
-    # height -- enough on its own to push the body onto an eighth page. Two
-    # interval panels with four horizon groups each stay legible at this height.
+    # Wide and short on purpose. This figure is included at full text
+    # width, and 2.45 in is the tallest aspect that keeps the camera-ready body
+    # on seven pages (2.55 in pushes two lines onto an eighth). Two interval
+    # panels with four horizon groups each stay legible at this height.
     # the budgets are in Table tab:paired; no labels under the markers, so the
     # base font can go up a point at the same figure height
     plt.rcParams["font.size"] = 10
-    fig, axes = plt.subplots(1, 2, figsize=(6.0, 2.15), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.0, 2.45), sharey=True)
     for ax, (key, name) in zip(axes, PANELS, strict=True):
         for k, fm in enumerate(sorted(d["fm"].unique())):
             g = d[d["fm"] == fm].sort_values("horizon").reset_index(drop=True)
@@ -132,6 +132,10 @@ def main() -> int:
     lab.append(f"{MARGIN_PP:.2f} pp practical margin")
     h.append(Line2D([], [], marker="o", ls="none", mfc="none", mec="0.45"))
     lab.append("each metric picks its own budget")
+    # At full text width the legend's last row sat on the TimesFM-2.5 h=24 cap
+    # in the right panel; 0.2 pp of headroom clears it at the same figure size.
+    lo, hi = axes[0].get_ylim()
+    axes[0].set_ylim(lo, hi + 0.2)
     axes[1].legend(h, lab, frameon=False, fontsize=7, loc="upper left")
     fig.tight_layout()
     fig.savefig(OUT / "fig_estimand.pdf", bbox_inches="tight")

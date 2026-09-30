@@ -12,7 +12,14 @@ Panel: the pre-registered completeness rule (>99.5% valid hours in the
 window) drops FR (98.80%, 26 hours missing at the window start); the primary
 panel is 18 countries and the 19-country panel is reported as a sensitivity.
 
+Seasonal control (TSLIMITS_REPL_WINDOW=2025q1, camera-ready, reviewer fZQK): the
+same frozen policies scored on the January-March 2025 targets of the 2025
+records, the same season one year earlier, on the same 18-country panel. Stated
+before the numbers were read: week and month gains also absent in Q1 2025 point
+to season; present in Q1 2025 point to a shift after 2025.
+
 Out:  reports/tslimits/replication_2026.csv, tab_replication2026.tex
+      (2025q1: replication_2025q1.csv, tab_replication2025q1.tex)
 Run:  PYTHONPATH=src .venv/bin/python scripts/tslimits_replication_2026.py
 """
 
@@ -46,11 +53,19 @@ DROPPED = {"FR": 0.9880}  # from reports/revision/load2026_gates.csv
 #                                   GDP term (tslimits_per_origin_structural.py
 #                                   --window 2026 --no-gdp); gate, thresholds and
 #                                   rules stay those of the deployed model.
+#   TSLIMITS_REPL_WINDOW=2025q1     scores the January-March 2025 targets of the 2025
+#                                   records instead of the 2026 quarter (seasonal control).
+REPL_WINDOW = os.environ.get("TSLIMITS_REPL_WINDOW", "2026")
+assert REPL_WINDOW in ("2026", "2025q1"), f"unknown TSLIMITS_REPL_WINDOW {REPL_WINDOW}"
+Q1_2025 = (pd.Timestamp("2025-01-01"), pd.Timestamp("2025-04-01"))
 START_2026 = os.environ.get("TSLIMITS_START_2026", "")
 STRUCT_2026 = os.environ.get("TSLIMITS_STRUCT_2026", "2026")
 SFX = (f"_from{START_2026[5:7]}{START_2026[8:10]}" if START_2026 else "") + (
     "_nogdp" if STRUCT_2026.endswith("nogdp") else ""
 )
+STEM = "2025q1" if REPL_WINDOW == "2025q1" else "2026"
+if REPL_WINDOW == "2025q1":
+    assert not START_2026 and STRUCT_2026 == "2026", "sensitivity arms are 2026-only"
 
 
 def _mod(name: str) -> Any:
@@ -113,9 +128,14 @@ def main() -> int:
     bcm = pd.read_csv(OUT / "bootstrap_ci_panel_median.csv").set_index(["fm", "horizon"])
     agg_mean, agg_med = ESTIMANDS["pooled_mean"], ESTIMANDS["panel_median"]
     rows = []
-    for fm_label, (_test_pat, dev_pat) in _BS.FM_PATTERNS.items():
+    for fm_label, (test_pat, dev_pat) in _BS.FM_PATTERNS.items():
         dev = _BS._paired("dev", dev_pat)
-        t26 = _BS._paired(STRUCT_2026, PAT26[fm_label])
+        if REPL_WINDOW == "2025q1":
+            t26 = _BS._paired("2025", test_pat)
+            tt = pd.to_datetime(t26["target_t"])
+            t26 = t26[(tt >= Q1_2025[0]) & (tt < Q1_2025[1])].reset_index(drop=True)
+        else:
+            t26 = _BS._paired(STRUCT_2026, PAT26[fm_label])
         if START_2026:
             keep = pd.to_datetime(t26["target_t"]) >= pd.Timestamp(START_2026)
             t26 = t26[keep].reset_index(drop=True)
@@ -206,7 +226,7 @@ def main() -> int:
                     r[f"{tag}_headroom_pp"] = round(r[f"{tag}_cc_static"] - r[f"{tag}_oracle"], 4)
                 rows.append(r)
                 print(
-                    f"[2026] {SHORT[fm_label]:11s} h={int(h):<4} panel {panel_name}: n={r['n']} "
+                    f"[{STEM}] {SHORT[fm_label]:11s} h={int(h):<4} panel {panel_name}: n={r['n']} "
                     f"router/mean {r['pm_router_mean_over_cc_pp']:+.3f} "
                     f"[{r['pm_router_mean_lo']:+.3f},{r['pm_router_mean_hi']:+.3f}] "
                     f"| median-scored {r['md_router_mean_over_cc_pp']:+.3f} | median-selected "
@@ -215,7 +235,7 @@ def main() -> int:
                     flush=True,
                 )
     d = pd.DataFrame(rows)
-    d.to_csv(OUT / f"replication_2026{SFX}.csv", index=False)
+    d.to_csv(OUT / f"replication_{STEM}{SFX}.csv", index=False)
     p18 = d[d["panel"] == "18"]
     tex = [
         "\\begin{tabular}{llrlrrrrr}",
@@ -234,11 +254,11 @@ def main() -> int:
             f"{r.pm_headroom_pp:.3f} & {r.frac_mean:.2f} \\\\"
         )
     tex += ["\\bottomrule", "\\end{tabular}"]
-    (OUT / f"tab_replication2026{SFX}.tex").write_text("\n".join(tex) + "\n")
+    (OUT / f"tab_replication{STEM}{SFX}.tex").write_text("\n".join(tex) + "\n")
     pos = int((p18["pm_router_mean_over_cc_pp"] > 0).sum())
     sig = int((p18["pm_router_mean_lo"] > 0).sum())
     print(
-        f"[2026] 18-country panel: router over c-static positive in {pos}/8, interval excludes "
+        f"[{STEM}] 18-country panel: router over c-static positive in {pos}/8, interval excludes "
         f"zero in {sig}/8, "
         f"median gain {p18['pm_router_mean_over_cc_pp'].median():+.3f} pp (2025: +0.191); "
         f"median-scored {p18['md_router_mean_over_cc_pp'].median():+.3f}",

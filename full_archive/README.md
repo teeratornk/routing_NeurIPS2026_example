@@ -23,7 +23,9 @@ the corresponding author named in the paper.
 - `records/served/`: per-request served losses of every policy in Table 1 and
   its controls, with the deployed gate's score (`served_per_request.parquet`;
   `_shallow`, `_ridge` for the alternative learners; `_native` for the
-  capability-matched family where present).
+  capability-matched family where present). `selection_2024_per_request.parquet`
+  holds the deployed gates' scores and both models' errors on the 2024 selection
+  year, which the priced selection (`tslimits_cost_selection.py`) reads.
 - `gates/`: the eight deployed margin regressors (`HistGradientBoostingRegressor`,
   scikit-learn 1.5.2 defaults, 300 iterations, seed 0), refit deterministically
   from the development records and pickled; `features.json` names the 22
@@ -69,13 +71,15 @@ the corresponding author named in the paper.
 | tab_selection | `tslimits_selection_bootstrap.py` | development and 2025 records, `paired_estimand.csv` |
 | tab_gate_pareto | `tslimits_gate_pareto.py` | `country_static*.csv`, `router_cost*.json` |
 | tab_latency | `tslimits_latency.py` | `router_cost.json`, energy JSON |
-| tab_energy | `tslimits_energy_inference.py` (measurement) | H200 |
+| tab_energy | `tslimits_tables.py` | energy JSON, measured by `tslimits_energy_inference.py` on the H200 |
 | tab_context, tab_context_timesfm | `tslimits_context.py` | context arms |
 | tab_native_family | `tslimits_native_family.py` | `country_static_native.csv`, `bootstrap_ci_pooled_mean_native.csv` |
 | tab_longlead_cstatic | `tslimits_longlead_cstatic.py` | `per_origin_structural_devlong.parquet`, rollout records |
 | tab_nogdp | `tslimits_nogdp.py` | `per_origin_structural_*_nogdp.parquet` |
 | tab_covariates | `tslimits_covariates.py` | `tslcov_*` records |
 | tab_replication2026 | `tslimits_replication_2026.py` | `per_origin_structural_2026.parquet`, `tsl26_*` records; `replication_2026_from0107.csv` (targets from 7 January 2026) and `replication_2026_nogdp.csv` (2026 structural records without the GDP term) are its two sensitivity arms |
+| tab_replication2025q1 | `tslimits_replication_2026.py` with `TSLIMITS_REPL_WINDOW=2025q1` | 2025 records, January-March targets |
+| tab_costsel | `tslimits_cost_selection.py`, then `tslimits_tables.py` | `selection_2024_per_request.parquet`, `served_per_request.parquet`, `country_static.csv` |
 | tab_byyear | `tslimits_by_year.py` | development and 2025 records |
 
 The structural forecaster itself (a concurrent submission) is not part of this

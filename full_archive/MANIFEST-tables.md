@@ -18,13 +18,15 @@ environment (Python 3.11, scikit-learn 1.5.2, numpy 1.26.4, pandas 2.x):
 | tab_selection | `python scripts/tslimits_selection_bootstrap.py` | records |
 | tab_gate_pareto | `TSLIMITS_GATE=shallow python scripts/tslimits_country_static.py; TSLIMITS_GATE=ridge python scripts/tslimits_country_static.py; python scripts/tslimits_gate_pareto.py` | records + aggregates (router_cost*.json latency measurements) |
 | tab_latency | `python scripts/tslimits_latency.py` | aggregates (router_cost.json, energy_inference*.json) |
-| tab_energy | measurement only (`tslimits_energy_inference.py` on an H200) | aggregates |
+| tab_energy | `python scripts/tslimits_tables.py`, from `energy_inference_*.json` measured by `tslimits_energy_inference.py` on an H200 | aggregates |
 | tab_context, tab_context_timesfm | `python scripts/tslimits_context.py` | records |
 | tab_native_family | `TSLIMITS_FM_FAMILY=native python scripts/tslimits_bootstrap.py; TSLIMITS_FM_FAMILY=native python scripts/tslimits_country_static.py; python scripts/tslimits_native_family.py` | records |
 | tab_longlead_cstatic | `python scripts/tslimits_longlead_cstatic.py` | records |
 | tab_nogdp | `python scripts/tslimits_nogdp.py` | records (structural no-GDP arms) |
 | tab_covariates | `python scripts/tslimits_covariates.py` | records |
 | tab_replication2026 | `python scripts/tslimits_replication_2026.py` | records; `TSLIMITS_START_2026=2026-01-07` and `TSLIMITS_STRUCT_2026=2026_nogdp` give the two sensitivity arms |
+| tab_replication2025q1 | `TSLIMITS_REPL_WINDOW=2025q1 python scripts/tslimits_replication_2026.py` | records (the January-March 2025 seasonal control) |
+| tab_costsel | `PYTHONPATH=../src python scripts/tslimits_cost_selection.py --stage select --selection records/served/selection_2024_per_request.parquet --served records/served/served_per_request.parquet --country-static results/country_static.csv --out results; python scripts/tslimits_tables.py` | records (`--stage scores`, which refits the gates to write the 2024 record, needs the two load-valued features, which are not redistributed; the record itself is shipped) |
 | tab_byyear | `python scripts/tslimits_by_year.py` | records |
 | tail_robustness.csv (text only) | `python scripts/tslimits_tail_robustness.py` | aggregates: MW MAE and load-weighted columns need target loads |
 | baselines.csv wmape_* (text only) | `python scripts/tslimits_baselines.py` | aggregates |

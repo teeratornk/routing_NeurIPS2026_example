@@ -1,7 +1,7 @@
         1085  LICENSE-CODE
          339  LICENSE-DATA
-        3143  MANIFEST-tables.md
-        5769  README.md
+        3832  MANIFEST-tables.md
+        6296  README.md
          671  gates/features.json
       176225  gates/gate_chronos-2_h1.pkl
      1115166  gates/gate_chronos-2_h168.pkl
@@ -800,6 +800,7 @@
        77445  records/fm/tsldev_timesfm_q_SK_h168.parquet
        77445  records/fm/tsldev_timesfm_q_SK_h24.parquet
        77445  records/fm/tsldev_timesfm_q_SK_h720.parquet
+     1467291  records/served/selection_2024_per_request.parquet
      6657457  records/served/served_per_request.parquet
      6802675  records/served/served_per_request_native.parquet
      5639324  records/served/served_per_request_ridge.parquet
@@ -833,6 +834,8 @@
        10722  results/cluster_leverage.csv
          360  results/context_sensitivity.csv
          263  results/context_sensitivity_timesfm.csv
+       11869  results/cost_selection.csv
+         662  results/cost_selection_aggregate.csv
         7540  results/country_breakdown.csv
         7544  results/country_breakdown_native.csv
         7320  results/country_breakdown_ridge.csv
@@ -880,6 +883,7 @@
          234  results/per_origin_structural_gates_2026_nogdp.csv
          204  results/per_origin_structural_gates_dev.csv
          105  results/per_origin_structural_gates_devlong.csv
+        5439  results/replication_2025q1.csv
         5464  results/replication_2026.csv
         5485  results/replication_2026_from0107.csv
         5476  results/replication_2026_nogdp.csv
@@ -919,6 +923,7 @@
         2681  scripts/tslimits_chronos_multiyear.sbatch
         2431  scripts/tslimits_chronos_year.sbatch
         8729  scripts/tslimits_context.py
+       15581  scripts/tslimits_cost_selection.py
        24138  scripts/tslimits_country_static.py
         5199  scripts/tslimits_covariates.py
         5179  scripts/tslimits_dateblock.py
@@ -928,7 +933,8 @@
         3804  scripts/tslimits_energy_inference.sbatch
         9076  scripts/tslimits_energy_probe.py
         1398  scripts/tslimits_energy_probe.sbatch
-        6623  scripts/tslimits_fig_estimand.py
+        3715  scripts/tslimits_fig_costsel.py
+        6839  scripts/tslimits_fig_estimand.py
         5725  scripts/tslimits_fig_ladder.py
         3559  scripts/tslimits_fig_netgain.py
        10002  scripts/tslimits_figures.py
@@ -944,7 +950,7 @@
         8830  scripts/tslimits_noisefloor.py
        15466  scripts/tslimits_paired_estimand.py
        24977  scripts/tslimits_per_origin_structural.py
-       11546  scripts/tslimits_replication_2026.py
+       12793  scripts/tslimits_replication_2026.py
         8929  scripts/tslimits_rollout_ablation.py
         1287  scripts/tslimits_rollout_ablation.sbatch
         1577  scripts/tslimits_rollout_ablation_year.sbatch
@@ -953,7 +959,7 @@
         6058  scripts/tslimits_router_cost.py
         5872  scripts/tslimits_seed_sensitivity.py
        14813  scripts/tslimits_selection_bootstrap.py
-       36958  scripts/tslimits_tables.py
+       39612  scripts/tslimits_tables.py
         7373  scripts/tslimits_tail_robustness.py
         6831  scripts/tslimits_threshold_stability.py
         1992  scripts/tslimits_timesfm_2025.sbatch
@@ -972,6 +978,7 @@
          420  tables/tab_context.tex
          300  tables/tab_context_timesfm.tex
          541  tables/tab_controls.tex
+        1445  tables/tab_costsel.tex
          974  tables/tab_countrybreak.tex
          970  tables/tab_covariates.tex
          762  tables/tab_dst.tex
@@ -989,6 +996,7 @@
          807  tables/tab_paired.tex
          770  tables/tab_policies.tex
          982  tables/tab_policy2x2.tex
+        1016  tables/tab_replication2025q1.tex
         1016  tables/tab_replication2026.tex
         1273  tables/tab_selection.tex
          593  tables/tab_threshold.tex
