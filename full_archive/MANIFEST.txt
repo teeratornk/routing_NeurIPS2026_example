@@ -935,10 +935,10 @@
         1398  scripts/tslimits_energy_probe.sbatch
         3715  scripts/tslimits_fig_costsel.py
         6839  scripts/tslimits_fig_estimand.py
-        5725  scripts/tslimits_fig_ladder.py
-        3559  scripts/tslimits_fig_netgain.py
+        6055  scripts/tslimits_fig_ladder.py
+        4537  scripts/tslimits_fig_netgain.py
        10002  scripts/tslimits_figures.py
-       10428  scripts/tslimits_frontier.py
+       10640  scripts/tslimits_frontier.py
        14011  scripts/tslimits_gate.py
         3848  scripts/tslimits_gate_pareto.py
         8217  scripts/tslimits_headroom.py

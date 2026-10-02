@@ -204,6 +204,8 @@ def main() -> int:
         ax.set_title(f"{fm_label.split('-Uni')[0]}, $h$={h}", fontsize=9)
         if zero_floor is None:
             ax.set_xscale("symlog", linthresh=0.05)
+            # symlog's default ticks put 10^-2 a hair right of 0 ("010^-2")
+            ax.set_xticks([0.0, 0.1, 1.0])
         else:
             ax.set_xscale("log")
             z = g[zero]
@@ -242,7 +244,9 @@ def main() -> int:
     figb, axb = plt.subplots(1, 2, figsize=(6.4, 2.7))
     for i, (fm_label, h) in enumerate(picks):
         _panel(axb[i], fm_label, h, legend=(i == 0))
-        axb[i].set_xlabel("GPU J / request (band: loaded-idle to quiet-idle)")
+        # the band is explained in the caption; the long label ran off the
+        # right panel and into the neighbouring one
+        axb[i].set_xlabel("GPU J / request")
     axb[0].set_ylabel("pooled mean APE (%)")
     figb.tight_layout()
     figb.savefig(OUT / "fig_frontier_main.pdf", bbox_inches="tight")

@@ -75,7 +75,7 @@ def main() -> int:
     assert ahead[0], "ladder assumes the FM leads at the shortest horizon"
     if (~ahead).any():
         cross = int(np.argmax(~ahead))
-        ax.axvline(cross - 0.5, color="0.6", lw=0.9, ls=(0, (4, 2)))
+        vline = ax.axvline(cross - 0.5, color="0.6", lw=0.9, ls=(0, (4, 2)))
         # a point-estimate transition: the interval at a week covers zero
         ax.annotate("point-estimate\ntransition", xy=(cross - 0.5, -3.2),
                     xytext=(cross - 0.45, -4.6), fontsize=7, color="0.35", ha="left")
@@ -106,8 +106,14 @@ def main() -> int:
     h_, l_ = ax.get_legend_handles_labels()
     h_.append(Line2D([], [], marker="o", ls="none", mfc="none", mec="0.45"))
     l_.append("interval covers zero")
-    ax.legend(h_, l_, frameon=False, fontsize=7, loc="lower left")
+    leg = ax.legend(h_, l_, frameon=False, fontsize=7, loc="lower left")
     fig.tight_layout()
+    # The legend's last entry ran under the dashed transition line ("interval
+    # covers ze|ro"); start the line just above the legend instead.
+    if cross < len(x):
+        fig.canvas.draw()
+        top = leg.get_window_extent().transformed(ax.transAxes.inverted()).y1
+        vline.set_ydata([top + 0.02, 1.0])
     fig.savefig(OUT / "fig_ladder.pdf", bbox_inches="tight")
 
     print("[ladder] " + "  ".join(
